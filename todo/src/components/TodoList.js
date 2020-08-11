@@ -1,22 +1,20 @@
-import React, { useState } from 'react'
-import Todo from './Todo'
+import React from 'react';
+import Item from './Todo'
 
-
-export const TodoList = (props) => {
-    const { todos } = props
-
+const TodoList = ({todos, toggleTask, clearCompleted}) => {
+    
     return (
-        <div>
-            {
-            todos.map((todo) => (
-                <Todo 
-                 todo={todo}
-                 key= {todo.id}
-                />//map through each todo and for each todo dispay "Todo" --- send the todo item down to Todo//
-                ))
-            }
-        </div>
-           
+    
+            <div>
+                {todos.map((item) => (
+                    <Item  
+                    key={item.id} 
+                    item={item}
+                    toggleItem={toggleTask} 
+                    clearCompleted={clearCompleted}
+                    />
+                ))}
+            </div>
     )
 }
 
