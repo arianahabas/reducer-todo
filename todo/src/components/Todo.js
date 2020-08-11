@@ -20,7 +20,7 @@ const Style = styled.div `
 `
 
 const Item = ({toggleItem, item}) => {
-
+console.log(item)
     return (
       <Style 
       onClick={()=> toggleItem(item.id)} 
