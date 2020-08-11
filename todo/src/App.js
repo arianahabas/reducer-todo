@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Header from './components/Header'
+import Form from './components/Form'
+import TodoList from './components/TodoList'
+
+
+export const initialTodos = [
+    {
+        item: 'Study',
+        completed: false,
+        id: 1
+    },
+    {
+      item: 'Make Dinner',
+      completed: false,
+      id: 2
+  }
+
+];
 
 function App() {
+ const [todos , setTodos ] = useState(initialTodos)
+  console.log(todos)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Form />
+      <TodoList 
+      todos={todos} // send intialTodos down to list in order to map through each item
+      /> 
     </div>
   );
 }
